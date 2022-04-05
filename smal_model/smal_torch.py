@@ -32,6 +32,7 @@ class SMAL(nn.Module):
             u = pkl._Unpickler(f)
             u.encoding = 'latin1'
             dd = u.load()
+            # dd = pkl.load(f, encoding='iso-8859-1')
 
         self.f = dd['f']
 
