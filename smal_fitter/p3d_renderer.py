@@ -19,7 +19,7 @@ class Renderer(torch.nn.Module):
         super(Renderer, self).__init__()
 
         self.image_size = image_size
-        R, T = look_at_view_transform(2.7, 0, 0, device=device) ########!!!!!
+        R, T = look_at_view_transform(2.7, 0, 0, device=device) ########!!!!! degree
         self.cameras = OpenGLPerspectiveCameras(device=device, R=R, T=T) #fov=60
         self.mesh_color = torch.FloatTensor(config.MESH_COLOR).to(device)[None, None, :] / 255.0
 

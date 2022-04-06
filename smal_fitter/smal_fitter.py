@@ -82,7 +82,7 @@ class SMALFitter(nn.Module):
         global_rotation = torch.from_numpy(global_rotation_np).float().to(device).unsqueeze(0).repeat(self.num_images, 1) # Global Init (Head-On)
         self.global_rotation = nn.Parameter(global_rotation)
 
-        trans = torch.FloatTensor([0.0, 0.0, 0.0])[None, :].to(device).repeat(self.num_images, 1) # Trans Init
+        trans = torch.FloatTensor([0.0, 0.0, 0.0])[None, :].to(device).repeat(self.num_images, 1) # Trans Init ##########!!!
         self.trans = nn.Parameter(trans)
 
         default_joints = torch.zeros(self.num_images, config.N_POSE, 3).to(device)

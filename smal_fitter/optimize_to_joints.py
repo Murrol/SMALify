@@ -138,7 +138,9 @@ def main():
             optimizer.step()
 
             if epoch_id % config.VIS_FREQUENCY == 0:
-                model.generate_visualization(image_exporter)
+                with torch.no_grad():
+                    model.generate_visualization(image_exporter)
+                torch.cuda.empty_cache() 
 
     image_exporter.stage_id = 10
     image_exporter.epoch_name = str(0)
