@@ -7,7 +7,8 @@ import time
 data_path = "data"
 BADJA_PATH = "/data/shihao/badja"
 STANFORD_EXTRA_PATH = "data/StanfordExtra"
-OUTPUT_DIR = "/data/shihao/badja/checkpoints/{0}".format(time.strftime("%Y%m%d-%H%M%S"))
+# OUTPUT_DIR = "/data/shihao/badja/checkpoints/{0}".format(time.strftime("%Y%m%d-%H%M%S"))
+OUTPUT_DIR = "/data/shihao/badja/checkpoints/exp"
 
 CROP_SIZE = 256
 VIS_FREQUENCY = 10000 #No Vis
@@ -23,11 +24,14 @@ SHAPE_FAMILY = 1 # Choose from Cat (e.g. House Cat/Tiger/Lion), Canine (e.g. Dog
 SEQUENCE_OR_IMAGE_NAME = "badja:rs_dog"
 # SEQUENCE_OR_IMAGE_NAME = "stanfordextra:n02099601-golden_retriever/n02099601_176.jpg"
 IMAGE_RANGE = None
-# IMAGE_RANGE = range(5) #range(0,1)# Frames to process from sequence. Ignored for stanford extra
+# IMAGE_RANGE = range(0, 20) #range(0,1)# Frames to process from sequence. Ignored for stanford extra
+# IMAGE_RANGE = range(20, 120)
+# IMAGE_RANGE = range(120, 201)
+IMAGE_RANGE = None
 WINDOW_SIZE = 5 # Changed number of frames processed in one go.
 
 # Generate video settings
-CHECKPOINT_NAME = "20220307-201153" # the directory to run
+CHECKPOINT_NAME = "exp" # the directory to run
 EPOCH_NAME = "st10_ep0" # convention used for the final output file. Don't change this without good reason.
 
 # SMAL

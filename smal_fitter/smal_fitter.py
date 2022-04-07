@@ -181,11 +181,11 @@ class SMALFitter(nn.Module):
         joint_loss = torch.tensor(0.0).float().to(self.device)
         global_loss = torch.tensor(0.0).float().to(self.device)
         trans_loss = torch.tensor(0.0).float().to(self.device)
-
-        for i in range(0, self.num_images - 1):
-            global_loss += F.mse_loss(global_rotation[i], global_rotation[i + 1]) * w_temp
-            joint_loss += F.mse_loss(joint_rotations[i], joint_rotations[i + 1]) * w_temp
-            trans_loss += F.mse_loss(self.trans[i], self.trans[i + 1]) * w_temp
+        ####disabled
+        # for i in range(0, self.num_images - 1):
+        #     global_loss += F.mse_loss(global_rotation[i], global_rotation[i + 1]) * w_temp
+        #     joint_loss += F.mse_loss(joint_rotations[i], joint_rotations[i + 1]) * w_temp
+        #     trans_loss += F.mse_loss(self.trans[i], self.trans[i + 1]) * w_temp
 
         return joint_loss, global_loss, trans_loss
 
