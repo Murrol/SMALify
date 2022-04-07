@@ -23,15 +23,15 @@ ALLOW_LIMB_SCALING = True # Allow scaling parameters, see Who Left the Dogs Out?
 SHAPE_FAMILY = 1 # Choose from Cat (e.g. House Cat/Tiger/Lion), Canine (e.g. Dog/Wolf), Equine (e.g. Horse/Zebra), Bovine (e.g. Cow), Hippo
 SEQUENCE_OR_IMAGE_NAME = "badja:rs_dog"
 # SEQUENCE_OR_IMAGE_NAME = "stanfordextra:n02099601-golden_retriever/n02099601_176.jpg"
-IMAGE_RANGE = None
+# IMAGE_RANGE = None
 # IMAGE_RANGE = range(0, 20) #range(0,1)# Frames to process from sequence. Ignored for stanford extra
 # IMAGE_RANGE = range(20, 120)
 # IMAGE_RANGE = range(120, 201)
-IMAGE_RANGE = None
+IMAGE_RANGE = range(0,5)
 WINDOW_SIZE = 5 # Changed number of frames processed in one go.
 
 # Generate video settings
-CHECKPOINT_NAME = "exp" # the directory to run
+CHECKPOINT_NAME = "20220307-201153" # the directory to run
 EPOCH_NAME = "st10_ep0" # convention used for the final output file. Don't change this without good reason.
 
 # SMAL

@@ -233,7 +233,8 @@ class SMALFitter(nn.Module):
 
                 verts = verts + batch_params['trans'].unsqueeze(1)
                 joints = joints + batch_params['trans'].unsqueeze(1)
-
+                print(verts.shape)
+                print(verts.type)
                 canonical_joints = joints[:, config.CANONICAL_MODEL_JOINTS]
 
                 rendered_silhouettes, rendered_joints, rendered_images = self.renderer(
@@ -264,7 +265,8 @@ class SMALFitter(nn.Module):
                 ], dim = 3)
 
                 for batch_id, global_id in enumerate(batch_range):
-                    collage_np = np.transpose(collage_rows[batch_id].numpy(), (1, 2, 0))
+                    # collage_np = np.transpose(collage_rows[batch_id].numpy(), (1, 2, 0))
+                    collage_np = np.transpose(rgb_imgs[batch_id].cpu().numpy(), (1, 2, 0))
                     img_parameters = { k: v[batch_id].cpu().data.numpy() for (k, v) in batch_params.items() }
                     image_exporter.export(
                         (collage_np * 255.0).astype(np.uint8), 
