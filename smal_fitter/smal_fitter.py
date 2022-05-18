@@ -263,10 +263,11 @@ class SMALFitter(nn.Module):
                     target_vis, rendered_images_vis, 
                     rendered_overlay_vis, silhouette_error, rev_images_vis
                 ], dim = 3)
-
+                # print(sil_imgs.shape)
                 for batch_id, global_id in enumerate(batch_range):
                     # collage_np = np.transpose(collage_rows[batch_id].numpy(), (1, 2, 0))
-                    collage_np = np.transpose(rgb_imgs[batch_id].cpu().numpy(), (1, 2, 0))
+                    collage_np = np.transpose(sil_imgs[batch_id].expand_as(rgb_imgs[batch_id]).cpu().numpy(), (1, 2, 0))
+                    # print(collage_np.shape)
                     img_parameters = { k: v[batch_id].cpu().data.numpy() for (k, v) in batch_params.items() }
                     image_exporter.export(
                         (collage_np * 255.0).astype(np.uint8), 
